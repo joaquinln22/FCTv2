@@ -13,8 +13,6 @@ public class CameraLook : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Hola mundo");
-
         Cursor.lockState = CursorLockMode.Locked;
     }
 

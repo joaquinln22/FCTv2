@@ -387,6 +387,7 @@ GameObject:
   - component: {fileID: 1384065960933630994}
   - component: {fileID: 8878292732677685461}
   - component: {fileID: 5018505219963845498}
+  - component: {fileID: 2441083270376194980}
   m_Layer: 0
   m_Name: M1911
   m_TagString: Untagged
@@ -402,7 +403,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8787818896089381727}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0.606, y: -0.436, z: 0.885}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
@@ -480,6 +481,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 667506926282838480}
-  bullet: {fileID: 3093709232744912861, guid: 48e82da13a317a844ba92790af0657d3, type: 3}
+  bullet: {fileID: 1010746049799477548, guid: b767c2415d223824d9392744bd474220, type: 3}
   shotForce: 1500
   shotRate: 0.5
+--- !u!114 &2441083270376194980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8787818896089381727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55d89883548eb3c46bbca9e0a57e8771, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swayAmount: 8
