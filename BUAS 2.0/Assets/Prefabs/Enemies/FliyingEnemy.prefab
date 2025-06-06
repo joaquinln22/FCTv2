@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2709123587502787072}
   - component: {fileID: 4242335653789873588}
   - component: {fileID: 4470393443156866733}
+  - component: {fileID: 5033115266538308192}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -35,6 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3451354739866867510}
+  - {fileID: 6878661219056756839}
   m_Father: {fileID: 9152047508059820407}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2652116798272634816
@@ -157,6 +159,21 @@ MonoBehaviour:
   distanceToFollowPlath: 2
   followPlayer: 1
   distanceToFollowPlayer: 10
+--- !u!114 &5033115266538308192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107410790888446622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4f0258b83f01894ea20f1531d0fd208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyBullet: {fileID: 667598318650347636, guid: 70849e17d22a11d43b73ac65f1ffec6b, type: 3}
+  spawnBulletPoint: {fileID: 6878661219056756839}
+  bulletVelocity: 100
 --- !u!1 &1987096000700264253
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,7 +705,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9152047508059820407}
   m_Layer: 0
-  m_Name: EnemyRanged
+  m_Name: FliyingEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -741,4 +758,35 @@ Transform:
   m_Children:
   - {fileID: 3451354739866867504}
   m_Father: {fileID: 3451354739866867516}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8029603775736679602
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6878661219056756839}
+  m_Layer: 0
+  m_Name: EnemySpawnBulletPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6878661219056756839
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8029603775736679602}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.74}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8705322849592823621}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -23,10 +23,19 @@ public class AI : MonoBehaviour
 
     public float distanceToFollowPlayer = 10;
 
+    [System.Obsolete]
     void Start()
     {
-        navMeshAgent.destination = destinations[0].transform.position;
-        player = FindObjectOfType<PlayerMovement>().gameObject;
+        if (destinations == null || destinations.Length == 0)
+        {
+            transform.gameObject.GetComponent<AI>().enabled = false;
+        }
+        else
+        {
+            navMeshAgent.destination = destinations[0].transform.position;
+            player = FindObjectOfType<PlayerMovement>().gameObject; 
+        }
+        
     }
 
 
