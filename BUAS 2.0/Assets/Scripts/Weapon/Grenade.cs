@@ -10,9 +10,12 @@ public class Grenade : MonoBehaviour
     public float explosionForce = 70;
     bool exploded = false;
     public GameObject explosionEffect;
-
+    private AudioSource audioSource;
+    public AudioClip explosionSound;
+    
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         countdown = delay;
     }
 
@@ -43,6 +46,11 @@ public class Grenade : MonoBehaviour
             }
         }
 
-        Destroy(gameObject);
+        audioSource.PlayOneShot(explosionSound);
+
+        gameObject.GetComponent<SphereCollider>().enabled = false;
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
+
+        Destroy(gameObject, delay*2);
     }
 }
