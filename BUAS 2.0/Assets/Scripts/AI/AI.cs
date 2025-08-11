@@ -33,9 +33,9 @@ public class AI : MonoBehaviour
         else
         {
             navMeshAgent.destination = destinations[0].transform.position;
-            player = FindObjectOfType<PlayerMovement>().gameObject; 
+            player = FindObjectOfType<PlayerMovement>().gameObject;
         }
-        
+
     }
 
 
@@ -72,5 +72,10 @@ public class AI : MonoBehaviour
     public void FollowPlayer()
     {
         navMeshAgent.destination = player.transform.position;
+    }
+
+    public void GrenadeImpact()
+    {
+        Destroy(gameObject);
     }
 }

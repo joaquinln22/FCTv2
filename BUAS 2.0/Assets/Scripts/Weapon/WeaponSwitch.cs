@@ -39,6 +39,19 @@ public class WeaponSwitch : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            selectedWeapon = 0;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2) && weapons.Length>=2)
+        {
+            selectedWeapon = 1;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3) && weapons.Length>=2)
+        {
+            selectedWeapon = 2;
+        }
+
         if (previousWeapon != selectedWeapon)
         {
             SelectWeapon();
@@ -48,7 +61,7 @@ public class WeaponSwitch : MonoBehaviour
     void SelectWeapon()
     {
         int i = 0;
-        
+
         foreach (Transform weapon in transform)
         {
             if (weapon.gameObject.layer == LayerMask.NameToLayer("Weapon"))

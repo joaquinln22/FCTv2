@@ -38,6 +38,13 @@ public class Grenade : MonoBehaviour
 
         foreach (var rangeObjects in colliders)
         {
+            AI ai = rangeObjects.GetComponent<AI>();
+
+            if (ai != null)
+            {
+                ai.GrenadeImpact();
+            }
+
             Rigidbody rb = rangeObjects.GetComponent<Rigidbody>();
 
             if (rb != null)

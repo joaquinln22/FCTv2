@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public int gunAmmo = 10;
     public Text healthText;
     public int health = 100;
+    public int maxHealth = 100;
 
     private void Awake()
     {
@@ -38,6 +39,18 @@ public class GameManager : MonoBehaviour
             Debug.Log("Has palmao");
 
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
+
+    public void AddHealth(int health)
+    {
+        if (this.health + health >= maxHealth)
+        {
+            this.health = 100;
+        }
+        else
+        {
+            this.health += health;
         }
     }
 }
