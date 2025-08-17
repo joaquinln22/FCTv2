@@ -29,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
     public float staminaUseAmount = 5;
 
     private StaminaBar staminaSlider;
+    
+    public Animator animator;
 
     [Obsolete]
     private void Start()
@@ -47,6 +49,9 @@ public class PlayerMovement : MonoBehaviour
 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
+
+        animator.SetFloat("VelX", x);
+        animator.SetFloat("VelZ", z);
 
         Vector3 move = transform.right * x + transform.forward * z;
 

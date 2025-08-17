@@ -14,7 +14,8 @@ public class WeaponLogic : MonoBehaviour
     private float shotRateTime = 0;
     private AudioSource audioSource;
     public AudioClip shotSound;
-    
+    public bool continueShooting = false;
+
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -26,20 +27,44 @@ public class WeaponLogic : MonoBehaviour
         {
             if (Time.time > shotRateTime && GameManager.Instance.gunAmmo > 0)
             {
-                audioSource.PlayOneShot(shotSound);
+                if (continueShooting)
+                {
+                    InvokeRepeating("Shoot", .001f, shotRate);
+                }
+                else
+                {
+                    Shoot();
+                }
 
-                GameManager.Instance.gunAmmo--;
-                
-                GameObject newBullet;
-                newBullet = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
-
-                newBullet.GetComponent<Rigidbody>().AddForce(-spawnPoint.forward * shotForce);
-
-                shotRateTime = Time.time + shotRate;
-
-                Destroy(newBullet, 5);
             }
             
+
+        }else if (Input.GetButtonUp("Fire1") && continueShooting)
+        {
+            CancelInvoke("Shoot");
+        }
+    }
+
+    public void Shoot()
+    {
+        if (GameManager.Instance.gunAmmo > 0)
+        {
+            if (audioSource != null)
+            {
+                audioSource.PlayOneShot(shotSound);
+            }
+
+            GameManager.Instance.gunAmmo--;
+
+            GameObject newBullet;
+            newBullet = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
+            newBullet.GetComponent<Rigidbody>().AddForce(-spawnPoint.forward * shotForce);
+            shotRateTime = Time.time + shotRate;
+            Destroy(newBullet, 5);
+        }
+        else
+        {
+            CancelInvoke("Shoot");
         }
     }
 }
