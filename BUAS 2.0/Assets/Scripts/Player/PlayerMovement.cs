@@ -52,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetFloat("VelX", x);
         animator.SetFloat("VelZ", z);
+        animator.SetBool("isSprinting", isSprinting);
 
         Vector3 move = transform.right * x + transform.forward * z;
 
@@ -71,6 +72,13 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+
+            animator.SetBool("isJumping", true);
+        }
+
+        if (!isGrounded)
+        {
+            animator.SetBool("isJumping", false);
         }
     }
 
