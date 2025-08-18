@@ -13,6 +13,18 @@ public class CameraSwitch : MonoBehaviour
 
     public GameObject[] weapons;
 
+    public bool disableMeshPlayerInFirstPerson = true;
+
+    public SkinnedMeshRenderer meshPlayer;
+
+    private void Start()
+    {
+        if (disableMeshPlayerInFirstPerson)
+        {
+            meshPlayer.enabled = false;
+        }   
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.T))
@@ -26,14 +38,22 @@ public class CameraSwitch : MonoBehaviour
     {
         if (firstPersonEnabled)
         {
+            if (disableMeshPlayerInFirstPerson)
+            {
+                meshPlayer.enabled = false;
+            }
+
             firstPersonCamera.enabled = true;
             thirdPersonCamera.enabled = false;
             ChangeWeaponsFirstPerson();
         }
         else
         {
+            meshPlayer.enabled = true;
+
             firstPersonCamera.enabled = false;
             thirdPersonCamera.enabled = true;
+            
             ChangeWeaponsThirdPerson();
         }
     }
