@@ -9,6 +9,7 @@ TagManager:
   - DeathFloor
   - EnemyBullet
   - HealthObject
+  - Diana
   layers:
   - Default
   - TransparentFX
