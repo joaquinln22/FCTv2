@@ -35,7 +35,7 @@ public class PlayerInteractions : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("EnemyBullet"))
         {
-            GameManager.Instance.LoseHealth(5);
+            GameManager.Instance.LoseHealth(10);
         }
     }
 }

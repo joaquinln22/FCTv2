@@ -14,9 +14,4 @@ public class OptionsMenu : MonoBehaviour
     {
         audioMixer.SetFloat("Volume", volumen);
     }
-
-    public void ChangeResolution()
-    {
-        
-    }
 }
