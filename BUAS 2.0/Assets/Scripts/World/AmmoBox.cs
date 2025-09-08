@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class AmmoBox : MonoBehaviour
 {
-    public int ammo = 10;
+    public int ammo = 15;
 }

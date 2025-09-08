@@ -2,5 +2,5 @@ using UnityEngine;
 
 public class HealthObject : MonoBehaviour
 {
-    public int health = 10;
+    public int health = 15;
 }
